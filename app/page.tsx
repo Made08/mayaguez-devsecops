@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HomeHero } from "@/components/home/HomeHero";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -18,41 +19,7 @@ const iconMap = {
 export default function HomePage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center bg-hero-gradient overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,212,255,0.1),transparent_50%)]" />
-        </div>
-        
-        <div className="container-custom relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="info" className="mb-6">
-              Modelo de Adopción DevSecOps
-            </Badge>
-            <h1 className="text-5xl md:text-7xl font-bold text-mayaguez-text-primary mb-6 leading-tight">
-              Confianza Verificada.<br />
-              <span className="text-mayaguez-accent">Velocidad con Sentido.</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-mayaguez-text-secondary mb-8 max-w-3xl mx-auto">
-              El Modelo Mayagüez es un framework de adopción progresiva y medible de DevSecOps para organizaciones TI, integrando factores técnicos, organizacionales, culturales y de gobernanza.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/demo">
-                <Button variant="primary" size="lg" className="text-lg">
-                  Iniciar Evaluación Gratuita
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="/about">
-                <Button variant="outline" size="lg" className="text-lg">
-                  Conocer el Modelo
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeHero />
 
       {/* Statistics Section */}
       <Section className="bg-mayaguez-secondary/30">
