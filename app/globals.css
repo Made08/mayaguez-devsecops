@@ -5,20 +5,81 @@
 @layer base {
   :root {
     --font-inter: "Inter", system-ui, sans-serif;
+    --mz-void: #020810;
+    --mz-deep: #060e1a;
+    --mz-dark: #0a1628;
+    --mz-surface: #0f1f35;
+    --mz-elevated: #162540;
+    --mz-border: #1e3a5f;
+    --mz-cyan: #00d4ff;
+    --mz-green: #00c851;
+    --mz-amber: #ffb300;
+    --mz-red: #ff3d00;
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-mz-void text-mz-text-primary;
+    background:
+      radial-gradient(circle at 20% 10%, rgba(0, 212, 255, 0.08), transparent 28%),
+      radial-gradient(circle at 80% 0%, rgba(0, 200, 81, 0.05), transparent 24%),
+      linear-gradient(180deg, #020810 0%, #0a1628 42%, #060e1a 100%);
+  }
+
+  *:focus-visible {
+    @apply outline-none ring-2 ring-mz-cyan ring-offset-2 ring-offset-mz-void;
+  }
+
+  ::selection {
+    @apply bg-mz-cyan/30 text-mz-text-primary;
   }
 }
 
 @layer components {
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-6 md:px-12 xl:px-20;
+  }
+
+  .container-mz {
+    @apply max-w-7xl mx-auto px-6 md:px-12 xl:px-20;
   }
   
   .section-padding {
-    @apply py-16 lg:py-24;
+    @apply py-section-md lg:py-section-lg;
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-2xl hover:shadow-mayaguez-accent/10 hover:-translate-y-1;
+    @apply transition-all duration-200 hover:shadow-mz-hover hover:-translate-y-1 hover:border-mz-cyan/40;
+  }
+
+  .section-kicker {
+    @apply inline-flex items-center gap-3 text-label uppercase text-mz-cyan;
+  }
+
+  .section-kicker::before {
+    content: "";
+    @apply block h-px w-8 bg-mz-cyan;
+  }
+
+  .mz-grid-bg {
+    @apply bg-mz-grid bg-[length:48px_48px];
+  }
+
+  .link-underline {
+    @apply relative inline-flex items-center;
+  }
+
+  .link-underline::after {
+    content: "";
+    @apply absolute -bottom-1 left-0 h-px w-0 bg-mz-cyan transition-all duration-200;
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
   }
   
   .gradient-border {
@@ -39,5 +100,33 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .scrollbar-mz {
+    scrollbar-color: #1e3a5f #020810;
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-mz::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .scrollbar-mz::-webkit-scrollbar-track {
+    background: #020810;
+  }
+
+  .scrollbar-mz::-webkit-scrollbar-thumb {
+    background: #1e3a5f;
+    border-radius: 9999px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }

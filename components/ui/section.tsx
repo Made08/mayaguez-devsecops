@@ -9,7 +9,7 @@ export const Section = React.forwardRef<HTMLElement, SectionProps>(
   ({ className, container = true, children, ...props }, ref) => (
     <section
       ref={ref}
-      className={cn("section-padding", className)}
+      className={cn("section-padding relative", className)}
       {...props}
     >
       {container ? (
@@ -42,15 +42,15 @@ export const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps
     {...props}
   >
     {subtitle && (
-      <p className="text-mayaguez-accent font-semibold text-sm uppercase tracking-wider mb-2">
+      <p className={cn("section-kicker mb-4", centered && "justify-center")}>
         {subtitle}
       </p>
     )}
-    <h2 className="text-3xl md:text-4xl font-bold text-mayaguez-text-primary mb-4">
+    <h2 className="font-display text-display-sm md:text-display-md text-mz-text-primary mb-4 text-balance">
       {title}
     </h2>
     {description && (
-      <p className="text-mayaguez-text-secondary text-lg max-w-3xl">
+      <p className={cn("text-body-lg text-mz-text-secondary max-w-3xl", centered && "mx-auto")}>
         {description}
       </p>
     )}

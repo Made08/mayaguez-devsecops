@@ -2,22 +2,23 @@ import React from "react";
 import { cn } from "@/lib/utils";
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: "default" | "elevated" | "bordered";
+  variant?: "default" | "elevated" | "bordered" | "glow";
 }
 
 export const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant = "default", children, ...props }, ref) => {
     const variants = {
-      default: "bg-mayaguez-secondary/50 backdrop-blur-sm",
-      elevated: "bg-mayaguez-secondary/50 backdrop-blur-sm shadow-xl shadow-mayaguez-accent/5",
-      bordered: "bg-mayaguez-secondary/30 backdrop-blur-sm border border-mayaguez-accent/20"
+      default: "bg-mz-surface border border-mz-border shadow-mz-card",
+      elevated: "bg-mz-surface border border-mz-border shadow-mz-card",
+      bordered: "bg-mz-surface/80 border border-mz-border shadow-mz-card",
+      glow: "bg-mz-surface border border-mz-cyan/30 shadow-mz-glow"
     };
     
     return (
       <div
         ref={ref}
         className={cn(
-          "rounded-lg p-6 card-hover",
+          "rounded-card p-7 card-hover",
           variants[variant],
           className
         )}
@@ -37,7 +38,7 @@ export const CardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex flex-col space-y-1.5 mb-4", className)}
+    className={cn("flex flex-col space-y-2 mb-5", className)}
     {...props}
   />
 ));
@@ -50,7 +51,7 @@ export const CardTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h3
     ref={ref}
-    className={cn("text-xl font-semibold text-mayaguez-text-primary", className)}
+    className={cn("text-heading-md text-mz-text-primary", className)}
     {...props}
   />
 ));
@@ -63,7 +64,7 @@ export const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-sm text-mayaguez-text-secondary", className)}
+    className={cn("text-body-sm text-mz-text-secondary", className)}
     {...props}
   />
 ));

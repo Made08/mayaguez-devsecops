@@ -19,9 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="dark">
-      <body className={`${inter.variable} font-sans antialiased bg-mayaguez-primary text-mayaguez-text-primary`}>
+      <body className={`${inter.variable} font-sans antialiased bg-mz-void text-mz-text-primary`}>
         <Navbar />
-        <main className="min-h-screen pt-16">
+        <main className="min-h-screen pt-16 lg:pt-[72px]">
           {children}
         </main>
         <Footer />

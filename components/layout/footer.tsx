@@ -25,25 +25,32 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="bg-mayaguez-secondary border-t border-mayaguez-accent/10">
-      <div className="container-custom py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand */}
+    <footer className="border-t border-mz-border bg-mz-void">
+      <div className="container-custom py-16">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-5">
           <div className="space-y-4">
-            <Link href="/" className="flex items-center space-x-2">
-              <Shield className="h-8 w-8 text-mayaguez-accent" />
-              <span className="text-xl font-bold text-mayaguez-text-primary">
-                Modelo Mayagüez
+            <Link href="/" className="flex items-center gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-mz-cyan/30 bg-mz-cyan/10">
+                <Shield className="h-5 w-5 text-mz-cyan" />
+              </span>
+              <span className="font-display text-lg font-bold tracking-[0.18em] text-mz-text-primary">
+                MAYAGÜEZ
               </span>
             </Link>
-            <p className="text-sm text-mayaguez-text-secondary">
+            <p className="text-body-sm text-mz-text-secondary">
               Modelo de Adopción de DevSecOps para Mejorar la Seguridad, Calidad y Eficiencia Operativa en el Ciclo de Vida del Software.
             </p>
+            <div className="flex items-center gap-3">
+              {[Mail, Github, Linkedin].map((Icon, index) => (
+                <a key={index} href={index === 0 ? "mailto:contacto@mayaguez.dev" : "#"} className="flex h-9 w-9 items-center justify-center rounded-full border border-mz-border text-mz-text-tertiary transition-colors hover:border-mz-cyan/40 hover:text-mz-cyan" aria-label="Red social Mayagüez">
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Modelo Links */}
           <div>
-            <h3 className="text-sm font-semibold text-mayaguez-text-primary uppercase tracking-wider mb-4">
+            <h3 className="mb-4 text-label uppercase text-mz-text-primary">
               Modelo
             </h3>
             <ul className="space-y-2">
@@ -51,7 +58,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-mayaguez-text-secondary hover:text-mayaguez-accent transition-colors"
+                    className="text-body-sm text-mz-text-tertiary transition-colors hover:text-mz-cyan"
                   >
                     {link.name}
                   </Link>
@@ -60,9 +67,8 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Recursos Links */}
           <div>
-            <h3 className="text-sm font-semibold text-mayaguez-text-primary uppercase tracking-wider mb-4">
+            <h3 className="mb-4 text-label uppercase text-mz-text-primary">
               Recursos
             </h3>
             <ul className="space-y-2">
@@ -70,7 +76,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-mayaguez-text-secondary hover:text-mayaguez-accent transition-colors"
+                    className="text-body-sm text-mz-text-tertiary transition-colors hover:text-mz-cyan"
                   >
                     {link.name}
                   </Link>
@@ -79,9 +85,8 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Institución Links */}
           <div>
-            <h3 className="text-sm font-semibold text-mayaguez-text-primary uppercase tracking-wider mb-4">
+            <h3 className="mb-4 text-label uppercase text-mz-text-primary">
               Institución
             </h3>
             <ul className="space-y-2">
@@ -89,7 +94,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-mayaguez-text-secondary hover:text-mayaguez-accent transition-colors"
+                    className="text-body-sm text-mz-text-tertiary transition-colors hover:text-mz-cyan"
                   >
                     {link.name}
                   </Link>
@@ -97,32 +102,24 @@ export function Footer() {
               ))}
             </ul>
           </div>
+
+          <div className="rounded-card border border-mz-border bg-mz-surface p-5">
+            <h3 className="mb-3 text-label uppercase text-mz-text-primary">Siguiente paso</h3>
+            <p className="mb-4 text-body-sm text-mz-text-secondary">Evalúa tu nivel de madurez DevSecOps y recibe un roadmap basado en evidencia.</p>
+            <Link href="/demo" className="link-underline text-body-sm text-mz-cyan">
+              Iniciar evaluación
+            </Link>
+          </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-mayaguez-accent/10">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-mayaguez-text-muted">
+        <div className="mt-12 border-t border-mz-border pt-8">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <p className="text-body-sm text-mz-text-tertiary">
               © 2026 Modelo Mayagüez. Universidad Cooperativa de Colombia. Todos los derechos reservados.
             </p>
-            <div className="flex items-center space-x-4">
-              <a
-                href="mailto:contacto@mayaguez.dev"
-                className="text-mayaguez-text-secondary hover:text-mayaguez-accent transition-colors"
-              >
-                <Mail className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="text-mayaguez-text-secondary hover:text-mayaguez-accent transition-colors"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="text-mayaguez-text-secondary hover:text-mayaguez-accent transition-colors"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
+            <div className="flex items-center gap-4 text-caption uppercase text-mz-text-tertiary">
+              <span>Maestría GTI</span>
+              <span>Madelem Chico Velasco</span>
             </div>
           </div>
         </div>
@@ -130,3 +127,4 @@ export function Footer() {
     </footer>
   );
 }
+
