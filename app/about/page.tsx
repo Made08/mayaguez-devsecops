@@ -154,10 +154,10 @@ export default function AboutPage() {
                 <BookOpen className="h-8 w-8 text-mayaguez-accent mb-4" />
                 <h3 className="text-lg font-semibold text-mayaguez-text-primary mb-3">Pregunta de Investigación</h3>
                 <p className="text-mayaguez-text-secondary text-sm italic leading-relaxed">
-                  "¿Cómo diseñar un modelo de adopción DevSecOps adaptable a organizaciones TI con
+                  &ldquo;¿Cómo diseñar un modelo de adopción DevSecOps adaptable a organizaciones TI con
                   distintos niveles de madurez tecnológica, que integre factores técnicos,
                   organizacionales, culturales y de gobernanza para mejorar la seguridad, la calidad
-                  del software y la eficiencia operativa en el ciclo de vida del desarrollo de software?"
+                  del software y la eficiencia operativa en el ciclo de vida del desarrollo de software?&rdquo;
                 </p>
               </CardContent>
             </Card>
